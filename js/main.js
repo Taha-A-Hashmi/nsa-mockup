@@ -81,8 +81,8 @@ const loaderDone = (() => {
   });
 
   /* parallax out */
-  gsap.to('.hero-video', {
-    scale: 1.12, yPercent: 10, ease: 'none',
+  gsap.to('.hero-media', {
+    scale: 1.1, yPercent: 8, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
   });
   gsap.to('.hero-inner', {
