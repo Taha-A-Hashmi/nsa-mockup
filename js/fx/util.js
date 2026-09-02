@@ -47,9 +47,10 @@ export function textSprite(text, { fill = '#bfe8ff', pad = 26, font = '600 44px 
 }
 
 /* Mount a renderer on a canvas: sizing, DPR cap, RAF loop paused offscreen. */
-export function mountScene(canvas, { fov = 50, z = 10, dprMax = 1.5 } = {}) {
+export function mountScene(canvas, { fov = 50, z = 10, dprMax = 1.5, lit = false } = {}) {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
   renderer.setClearColor(0x000000, 0);
+  if (lit) { renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; }
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(fov, 1, 0.1, 400);
   camera.position.z = z;
