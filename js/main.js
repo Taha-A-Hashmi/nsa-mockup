@@ -185,6 +185,21 @@ if (finePointer) {
   });
 }
 
+/* ── Card 3D tilt ── */
+if (finePointer && !reduceMotion) {
+  $$('.card').forEach((card) => {
+    const rx = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2' });
+    const ry = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2' });
+    gsap.set(card, { transformPerspective: 800 });
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      rx(-((e.clientY - r.top) / r.height - 0.5) * 7);
+      ry(((e.clientX - r.left) / r.width - 0.5) * 9);
+    });
+    card.addEventListener('pointerleave', () => { rx(0); ry(0); });
+  });
+}
+
 /* ── Magnetic buttons ── */
 if (finePointer && !reduceMotion) {
   $$('.magnetic').forEach((btn) => {

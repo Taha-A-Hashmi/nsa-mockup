@@ -316,10 +316,68 @@ html.js .split-ready .sl-mask { overflow: hidden; display: block; }
 .foot-badge { height: 38px; width: auto; opacity: 0.65; }
 .foot-note { width: 100%; font-size: 12px; color: rgba(142, 163, 189, 0.55); }
 
+/* ── Hero 3D net ── */
+.hero-net { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; pointer-events: none; }
+
+/* ── Ops: warehouse flythrough ── */
+.ops { position: relative; height: 100vh; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--ink); }
+.ops-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ops-head { position: absolute; top: clamp(76px, 11vh, 130px); left: var(--pad); z-index: 2; max-width: 560px; pointer-events: none; }
+.ops-head .section-title { font-size: clamp(30px, 3.6vw, 50px); margin-bottom: 14px; }
+.ops-hint { font-family: var(--disp); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+.ops-caps { position: absolute; left: var(--pad); bottom: clamp(40px, 8vh, 90px); z-index: 2; pointer-events: none; }
+.ops-cap { position: absolute; bottom: 0; left: 0; width: min(420px, 78vw); opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.ops-cap.on { opacity: 1; transform: none; }
+.ops-cap strong { font-family: var(--disp); font-weight: 700; font-size: clamp(24px, 2.4vw, 34px); letter-spacing: -0.01em; display: block; margin-bottom: 8px; color: var(--blue-hi); }
+.ops-cap p { color: #c3d2e4; font-size: 15.5px; }
+
+/* ── Quote band ── */
+.quote { padding: clamp(80px, 10vw, 140px) var(--pad); border-top: 1px solid var(--line); text-align: center; }
+.quote .eyebrow { margin-bottom: 30px; }
+.quote-big {
+  font-family: var(--disp); font-weight: 600;
+  font-size: clamp(24px, 3.4vw, 44px); line-height: 1.28; letter-spacing: -0.015em;
+  max-width: 980px; margin: 0 auto; color: var(--muted); text-wrap: balance;
+}
+.quote-big em { font-style: normal; color: var(--text); }
+.quote-big em:nth-of-type(1) { color: var(--blue-hi); }
+.quote-big em:nth-of-type(3) { color: var(--amber); }
+
+/* ── Ecosystem orbit ── */
+.eco { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(30px, 4vw, 70px); align-items: center; overflow: hidden; }
+.eco-p { color: var(--muted); max-width: 520px; margin-bottom: 34px; }
+.eco-partners { display: flex; gap: 16px; flex-wrap: wrap; }
+.eco-partners img { height: 40px; width: auto; background: #eef3f8; padding: 9px 16px; border-radius: 6px; filter: grayscale(1); opacity: 0.85; transition: filter 0.3s, opacity 0.3s; }
+.eco-partners img:hover { filter: none; opacity: 1; }
+.eco-stage { position: relative; aspect-ratio: 1 / 0.9; min-height: 380px; }
+.orbit-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ── Network globe ── */
+.net { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(30px, 4vw, 70px); align-items: center; border-top: 1px solid var(--line); overflow: hidden; }
+.net-stage { position: relative; aspect-ratio: 1 / 0.95; min-height: 400px; }
+.globe-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.net-p { color: var(--muted); max-width: 500px; margin-bottom: 30px; }
+
+/* ── Badges band ── */
+.badges {
+  display: flex; justify-content: center; align-items: stretch; gap: clamp(28px, 6vw, 90px);
+  flex-wrap: wrap; padding: clamp(56px, 7vw, 90px) var(--pad);
+  border-top: 1px solid var(--line);
+}
+.badges figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 16px; justify-content: space-between; }
+.badges img { height: 64px; width: auto; opacity: 0.85; }
+.badges figcaption { font-family: var(--disp); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: center; line-height: 1.7; }
+
 /* ── Responsive ── */
+@media (min-width: 1240px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
 @media (max-width: 1000px) {
   .site-nav { display: none; }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .eco, .net { grid-template-columns: 1fr; }
+  .eco-stage, .net-stage { min-height: 340px; aspect-ratio: 1 / 0.8; }
+  .net-stage { order: 2; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(3) { border-left: 0; }
   .stat { border-top: 1px solid var(--line); }
@@ -343,4 +401,7 @@ html.js .split-ready .sl-mask { overflow: hidden; display: block; }
   .path li { opacity: 1; }
   .path::after { transform: none; }
   .hud-chip { opacity: 1; }
+  .ops { height: auto; min-height: 70vh; }
+  .ops-cap { position: static; opacity: 1; transform: none; margin-top: 18px; }
+  .hero-net { display: none; }
 }
