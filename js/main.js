@@ -64,10 +64,10 @@ const loaderDone = (() => {
   });
 
   Promise.all([document.fonts.ready, loaderDone]).then(() => {
-    const split = SplitText.create(title, { type: 'lines', mask: 'lines', linesClass: 'sl' });
+    const split = SplitText.create(title, { type: 'lines,chars', mask: 'lines', linesClass: 'sl' });
     title.classList.add('split-ready');
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.from(split.lines, { yPercent: 110, duration: 1.05, stagger: 0.09 }, 0.05)
+    tl.from(split.chars, { yPercent: 118, duration: 0.9, stagger: 0.022 }, 0.05)
       .from('.hero-eyebrow', { opacity: 0, y: 14, duration: 0.7 }, 0.2)
       .from('.hero-sub', { opacity: 0, y: 20, duration: 0.8 }, 0.5)
       .from('.hero-cta .btn', { opacity: 0, y: 18, duration: 0.7, stagger: 0.1 }, 0.65)

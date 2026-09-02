@@ -5,6 +5,8 @@ import { initWarehouse } from './fx/warehouse.js';
 import { initGlobe } from './fx/globe.js';
 import { initOrbit } from './fx/orbit.js';
 import { initGuide } from './fx/guide.js';
+import { initField } from './fx/field.js';
+import { initRipple } from './fx/ripple.js';
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const small = innerWidth < 760;
@@ -28,6 +30,14 @@ if (orbitCanvas) tryInit('orbit', () => initOrbit(orbitCanvas, { reduceMotion })
 
 const guideCanvas = document.querySelector('.guide-canvas');
 if (guideCanvas && !reduceMotion) tryInit('guide', () => initGuide(guideCanvas, { small }));
+
+const fieldCanvas = document.querySelector('.field-canvas');
+if (fieldCanvas && !reduceMotion) tryInit('field', () => initField(fieldCanvas, { small }));
+
+const rippleCanvas = document.querySelector('.hero-ripple');
+const heroVideo = document.querySelector('.hero-video');
+if (rippleCanvas && heroVideo && !reduceMotion && !small) tryInit('ripple', () => initRipple(rippleCanvas, heroVideo));
+else if (rippleCanvas) rippleCanvas.remove();
 
 /* Triggers were created across two scripts — re-sort by document order so
    the ops pin (early in the page) plays nicely with the story pin. */

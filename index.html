@@ -18,6 +18,8 @@
   </div>
 
   <!-- ═══ Chrome ═══ -->
+  <canvas class="field-canvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
   <canvas class="guide-canvas" aria-hidden="true"></canvas>
   <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-ring"></span></div>
@@ -41,6 +43,7 @@
     <section class="hero" id="hero">
       <div class="hero-media">
         <video class="hero-video" src="assets/video/hero.mp4" poster="assets/video/hero-poster.jpg" muted playsinline loop autoplay preload="auto"></video>
+        <canvas class="hero-ripple" aria-hidden="true"></canvas>
         <div class="hero-shade"></div>
         <canvas class="hero-net" aria-hidden="true"></canvas>
       </div>
@@ -115,6 +118,7 @@
 
     <!-- ═══ 02 · Solutions ═══ -->
     <section class="solutions section" id="solutions">
+      <span class="secnum" aria-hidden="true">02</span>
       <p class="eyebrow">02 — What we do</p>
       <h2 class="section-title reveal-title">Every stage of<br />your ERP journey.</h2>
       <div class="grid">
@@ -173,6 +177,7 @@
 
     <!-- ═══ 03 · Ecosystem (3D orbit) ═══ -->
     <section class="eco section" id="ecosystem">
+      <span class="secnum" aria-hidden="true">03</span>
       <div class="eco-copy">
         <p class="eyebrow">03 — NSA+</p>
         <h2 class="section-title reveal-title">CloudSuite at the center. Everything in orbit.</h2>
@@ -206,6 +211,7 @@
 
     <!-- ═══ 05 · Network globe ═══ -->
     <section class="net section" id="network">
+      <span class="secnum" aria-hidden="true">05</span>
       <div class="net-stage"><canvas class="globe-canvas" aria-hidden="true"></canvas></div>
       <div class="net-copy">
         <p class="eyebrow">05 — The network</p>
@@ -240,7 +246,16 @@
       </div>
     </section>
 
-    <!-- ═══ 04 · Story ═══ -->
+    <!-- ═══ Mega band ═══ -->
+    <div class="mega-strip marquee" data-speed="80" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Building better distributors</span>
+        <span>Since 1984</span>
+        <span>The human side of ERP</span>
+      </div>
+    </div>
+
+    <!-- ═══ 07 · Story ═══ -->
     <section class="story" id="story">
       <div class="story-pin">
         <div class="story-head">
