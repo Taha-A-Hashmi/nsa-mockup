@@ -3,14 +3,30 @@
 A pitch mockup for [nsacom.com](https://nsacom.com/) (NSA Computer Exchange Corp. —
 "The Human Side of ERP"). Not a live site; prepared to show a proposed redesign.
 
-## Run it
+**Live:** https://nsa-mockup.vercel.app/ (also https://taha-a-hashmi.github.io/nsa-mockup/)
 
-- `node serve.mjs` → http://localhost:5300 (recommended), **or**
-- double-click `index.html` (works offline; everything is vendored locally).
+## Run it locally
+
+- `node serve.mjs` → http://localhost:5300. (The three.js layer uses ES modules,
+  so it needs a server — `file://` shows the page without the 3D scenes.)
+
+## The 3D layer (`js/fx/`, three.js 0.185 vendored in `/lib`)
+
+- **Hero network** — cursor-reactive supply-web of glowing nodes/links over the port footage.
+- **Warehouse flythrough** (`#ops`) — a pinned, scroll-scrubbed walk through a procedural
+  digital-twin DC: wireframe racks, carton points, order pulses running the aisle,
+  stage captions (Receiving → Inventory → Pick & pack → Ship & invoice), ending on the
+  CloudSuite core.
+- **NSA+ orbit** (`#ecosystem`) — CloudSuite core with integration chips on two inclined orbits.
+- **Distributor globe** (`#network`) — graticule globe, ~30 North-American city nodes,
+  arcs animating out of Long Island.
+
+All scenes: additive soft-sprite aesthetic, DPR capped, paused offscreen via
+IntersectionObserver, reduced-motion renders a single static frame.
 
 ## What's in it
 
-One page, six beats:
+One page:
 
 1. **Hero** — night container-port time-lapse (Mixkit, free licence) motion-interpolated
    to 3× length, ping-pong looped, graded to NSA navy; decorative "data layer" HUD chips
